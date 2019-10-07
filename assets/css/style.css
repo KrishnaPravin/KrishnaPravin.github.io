@@ -1,0 +1,26 @@
+.pointer{
+    cursor: pointer;
+}
+.notes-description{
+    width: auto;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.updated-i{
+    font-size: 30px !important;
+    margin-left: 10px;
+    color: #fff;
+}
+.blue{
+    color: #4e73df !important;
+}
+.white{
+    color: #ffffff !important;
+}
+.save{
+    margin-left: 10px;
+}
+.pencil{
+    font-size: 20px !important;
+}
