@@ -627,31 +627,31 @@ var AllSetupService = /** @class */ (function () {
         this.toasterService = toasterService;
     }
     AllSetupService.prototype.addFolderService = function (body) {
-        return this.http.post('https://json-server-1.herokuapp.com/data/folders', body)
+        return this.http.post('https://json-server-1.herokuapp.com/folders', body)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["retry"])(0), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.customError));
     };
     AllSetupService.prototype.getFolderService = function () {
-        return this.http.get('https://json-server-1.herokuapp.com/data/folders?_sort=folderName&_order=asc')
+        return this.http.get('https://json-server-1.herokuapp.com/folders?_sort=folderName&_order=asc')
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["retry"])(0), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.customError));
     };
     AllSetupService.prototype.getNotesService = function (id) {
-        return this.http.get('https://json-server-1.herokuapp.com/data/notes?folderId=' + id)
+        return this.http.get('https://json-server-1.herokuapp.com/notes?folderId=' + id)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["retry"])(0), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.customError));
     };
     AllSetupService.prototype.getAllNotesService = function () {
-        return this.http.get('https://json-server-1.herokuapp.com/data/notes')
+        return this.http.get('https://json-server-1.herokuapp.com/notes')
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["retry"])(0), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.customError));
     };
     AllSetupService.prototype.addNoteService = function (body) {
-        return this.http.post('https://json-server-1.herokuapp.com/data/notes', body)
+        return this.http.post('https://json-server-1.herokuapp.com/notes', body)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["retry"])(0), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.customError));
     };
     AllSetupService.prototype.updateNoteService = function (body, id) {
-        return this.http.put('https://json-server-1.herokuapp.com/data/notes/' + id, body)
+        return this.http.put('https://json-server-1.herokuapp.com/notes/' + id, body)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["retry"])(0), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.customError));
     };
     AllSetupService.prototype.deleteNoteService = function (id) {
-        return this.http.delete('https://json-server-1.herokuapp.com/data/notes/' + id)
+        return this.http.delete('https://json-server-1.herokuapp.com/notes/' + id)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["retry"])(0), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.customError));
     };
     AllSetupService.prototype.customError = function (error) {
