@@ -1,5 +1,6 @@
 ---
 title: null
+name: Name
 ---
 
 # Google Tasks Extension for VS Code (unofficial)
