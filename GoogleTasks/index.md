@@ -1,8 +1,3 @@
----
-title: null
-name: Name
----
-
 # Google Tasks Extension for VS Code (unofficial)
 
 ## Manage your To-Do list ✅ without going out of your Code Editor 🤖.
