@@ -1,6 +1,5 @@
 ---
-title: Google Tasks Extension for VS Code (unofficial)
-title-heading: false
+title: null
 ---
 
 # Google Tasks Extension for VS Code (unofficial)
