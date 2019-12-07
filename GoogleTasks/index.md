@@ -1,26 +1,25 @@
-# Google Tasks Extension for VS Code (unofficial)
+# Google Tasks for VSCode (unofficial)
 
-## Manage your To-Do list ✅ without going out of your Code Editor 🤖.
-
-> This is **not** similar to extensions like 🌳 [Todo Tree](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree), which shows a tree view of the //TODO: comments in the source code
+Manage your To-Do list without going out of VSCode Editor.
 
 > This is not an official product of Google
 
-This extension is about viewing your list of tasks from the [Google Tasks](https://support.google.com/tasks/answer/7675772) in the tree view of [VS Code Editor](https://code.visualstudio.com/).
+This application is an extension to [VS Code Editor](https://code.visualstudio.com/) for viewing the list of tasks from [Google Tasks](https://support.google.com/tasks/answer/7675772) application in the tree view of VSCode.
 
-## Requirements
+# Find this app in:
 
-You need to have a Google Account to utilise this extension.
+- VSCode Marketplace: https://marketplace.visualstudio.com/items?itemName=KrishnaPravin.google-tasks
+- GitHub: https://github.com/KrishnaPravin/google-tasks-vscode-extension
 
 ## Screenshots
 
-![SignIn](resources/authorize.png)
+Authorize with Google after installing the extension
 
-![Tree view of Google Tasks](resources/treeView.png)
+![SignIn](authorize.png)
 
-## Extension Settings
+A tree view with the list of tasks from your google Tasks application will be available
 
-Currently this extension does not have any settings. But will be added soon 🛠.
+![Tree view of Google Tasks](treeView.png)
 
 ## Privacy Policy
 
