@@ -1,6 +1,6 @@
 ---
-layout: page
-title: New Page
+title: Google Tasks Extension for VS Code (unofficial)
+title-heading: false
 ---
 
 # Google Tasks Extension for VS Code (unofficial)
