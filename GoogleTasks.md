@@ -1,3 +1,8 @@
+---
+layout: page
+title: New Page
+---
+
 # Google Tasks Extension for VS Code (unofficial)
 
 ## Manage your To-Do list ✅ without going out of your Code Editor 🤖.
