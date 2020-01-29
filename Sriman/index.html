@@ -1,1 +1,70 @@
-hello
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Sriman</title>
+    <style>
+        label {
+            display: block;
+        }
+
+        label span {
+            display: inline-block;
+            min-width: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <label><span> EPI:</span> <input id="epi" type="number"></label>
+    <label><span> PPI:</span> <input id="ppi" type="number"></label>
+    <label><span> Count:</span> <input id="count" type="number"></label>
+    <label><span> Checking:</span> <input id="checking" type="number"></label>
+    <label><span> Packing:</span> <input id="packing" type="number"></label>
+
+    <label><span> Others:</span> <input id="others" type="number"></label>
+    <label><span> Yarn Rate:</span> <input id="yarnrate" type="number"></label>
+    <label><span> Sizing:</span> <input id="sizing" type="number"></label>
+    <label><span> Weaving:</span> <input id="weaving" type="number"></label>
+    <label><span> Width:</span> <input id="width" type="number"></label>
+    <br><br>
+    <label><span> Total:</span> <input id="total" type="number"></label>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        function calculateTotal() {
+            epi = $("#epi").val()
+            ppi = $("#ppi").val()
+            count = $("#count").val()
+            checking = $("#checking").val()
+            packing = $("#packing").val()
+            others = $("#others").val()
+            yarnrate = $("#yarnrate").val()
+            sizing = $("#sizing").val()
+            weaving = $("#weaving").val()
+            width = $("#width").val()
+
+            a = width + 4
+            weft = a * ppi * 0.5945238095 / 3
+            warp = (epi / count) * 0.64 * width
+            yarnrate = (yarnrate / 1000) * (weft + warp)
+            sizing = (sizing / 1000) * warp
+            weaving = ppi * weaving
+            total = weft + warp + yarnrate + sizing + weaving + checking + packing + others
+            $("#total").val(total)
+        }
+        $(document).ready(function () {
+            var inputs = $(':input').keypress(function (e) {
+                calculateTotal()
+                if (e.which == 13) {
+                    e.preventDefault();
+                    const nextInput = inputs.get(inputs.index(this) + 1);
+                    if (nextInput) nextInput.focus()
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
