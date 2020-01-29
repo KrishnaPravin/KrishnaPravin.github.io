@@ -3,7 +3,7 @@
 	"lang": "en",
 	"name": "Sriman",
 	"scope": "/Sriman/",
-	"display": "browser",
+	"display": "Standalone",
 	"start_url": "https://krishnapravin.github.io/Sriman/",
 	"short_name": "Sriman",
 	"theme_color": "transparent",
