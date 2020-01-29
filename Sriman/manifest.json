@@ -22,11 +22,6 @@
 			"src": "sriman-192.jpg",
 			"sizes": "192x192",
 			"type": "image/jpg"
-		},
-		{
-			"src": "sriman-144.png",
-			"sizes": "192x192",
-			"type": "image/png"
 		}
 	],
 	"generated": "true"

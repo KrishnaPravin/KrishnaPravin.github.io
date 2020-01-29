@@ -14,6 +14,15 @@
             display: inline-block;
             min-width: 80px;
         }
+
+        div {
+            text-align: center;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 5px 20px;
+        }
     </style>
 </head>
 
@@ -67,9 +76,7 @@
         });
     </script>
     <script src="pwabuilder-sw-register.js"></script>
-    <button onclick="install()">
-        Install
-    </button>
+    <div><button onclick="install()">Install</button></div>
     <script>
         let deferredPrompt = null;
 
