@@ -87,24 +87,24 @@
 
             a = Number(width) + 4
             weftgrams = (a * ppi * 0.5945238095) / weftcount
-            $("#weftgrams").html(weftgrams)
+            $("#weftgrams").html(Math.round(weftgrams).toFixed(2))
             warpgrams = (epi * .64 * width) / warpcount
-            $("#warpgrams").html(warpgrams)
+            $("#warpgrams").html(Math.round(warpgrams).toFixed(2))
             weftyarnrate = weftgrams * (weftyarnrateperkg / 1000)
-            $("#weftyarnrate").html(weftyarnrate)
+            $("#weftyarnrate").html(Math.round(weftyarnrate).toFixed(2))
             warpyarnrate = warpgrams * (warpyarnrateperkg / 1000)
-            $("#warpyarnrate").html(warpyarnrate)
+            $("#warpyarnrate").html(Math.round(warpyarnrate).toFixed(2))
 
             sizing = (sizingperkg / 1000) * warpgrams
-            $("#sizing").html(sizing)
+            $("#sizing").html(Math.round(sizing).toFixed(2))
             weaving_r = weaving * ppi
-            $("#weaving_r").html(weaving_r)
-            $("#checking_r").html(checking)
-            $("#packing_r").html(packing)
-            $("#others_r").html(others)
+            $("#weaving_r").html(Math.round(weaving_r).toFixed(2))
+            $("#checking_r").html(Math.round(checking).toFixed(2))
+            $("#packing_r").html(Math.round(packing).toFixed(2))
+            $("#others_r").html(Math.round(others).toFixed(2))
 
             total = weftyarnrate + warpyarnrate + sizing + weaving_r + checking + packing + others
-            $("#total").html(total)
+            $("#total").html(Math.round(total).toFixed(2))
         }
         $(document).ready(function () {
             var inputs = $(':input').keypress(function (e) {
