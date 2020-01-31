@@ -6,8 +6,17 @@
     <link rel='manifest' href='manifest.json'>
     <title>Sriman</title>
     <style>
+        * {
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        html {
+            font-size: 16px;
+        }
+
         label {
             display: block;
+            margin: 10px 0;
         }
 
         label span {
@@ -15,54 +24,79 @@
             min-width: 80px;
         }
 
-        div {
-            text-align: center;
+        input {
+            border: 0;
+            border-bottom: 1px solid #ccc;
+            font-size: inherit;
+            height: 40px;
         }
 
-        button {
-            margin-top: 20px;
-            padding: 5px 20px;
+        input#total {
+            border: 1px solid blue;
         }
     </style>
 </head>
 
 <body>
-    <label><span> EPI:</span> <input id="epi" type="number"></label>
-    <label><span> PPI:</span> <input id="ppi" type="number"></label>
-    <label><span> Count:</span> <input id="count" type="number"></label>
-    <label><span> Checking:</span> <input id="checking" type="number"></label>
-    <label><span> Packing:</span> <input id="packing" type="number"></label>
+    <div>
+        <div style="display: inline-block; width: 50%;">
+            <label><span> EPI:</span> <input id="epi" type="number"></label>
+            <label><span> PPI:</span> <input id="ppi" type="number"></label>
+            <label><span> Width:</span> <input id="width" type="number"></label>
+            <label><span> Count:</span> <input id="count" type="number"></label>
+            <label><span> Yarn Rate:</span> <input id="yarnrateperkg" type="number"></label>
+            <label><span> Sizingperkg:</span> <input id="sizingperkg" type="number"></label>
 
-    <label><span> Others:</span> <input id="others" type="number"></label>
-    <label><span> Yarn Rate:</span> <input id="yarnrate" type="number"></label>
-    <label><span> Sizing:</span> <input id="sizing" type="number"></label>
-    <label><span> Weaving:</span> <input id="weaving" type="number"></label>
-    <label><span> Width:</span> <input id="width" type="number"></label>
+            <label><span> Weaving:</span> <input id="weaving" type="number"></label>
+            <label><span> Checking:</span> <input id="checking" type="number"></label>
+            <label><span> Packing:</span> <input id="packing" type="number"></label>
+            <label><span> Others:</span> <input id="others" type="number"></label>
+        </div><div style="display: inline-block; width: 50%; vertical-align: top;">
+            <label><span>Weft grams:</span> <span id="weftgrams"></span></label>
+            <label><span>Warp grams:</span> <span id="warpgrams"></span></label>
+            <label><span>yarnrate:</span> <span id="yarnrate"></span></label>
+            <label><span>sizing:</span> <span id="sizing"></span></label>
+
+            <label><span>weaving:</span> <span id="weaving_r"></span></label>
+            <label><span>checking:</span> <span id="checking_r"></span></label>
+            <label><span>packing:</span> <span id="packing_r"></span></label>
+            <label><span>others:</span> <span id="others_r"></span></label>
+
+            <label><span>total:</span> <span id="total"></span></label>
+        </div>
+    </div>
     <br><br>
-    <label><span> Total:</span> <input id="total" type="number"></label>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
         function calculateTotal() {
             epi = $("#epi").val()
             ppi = $("#ppi").val()
+            width = $("#width").val()
             count = $("#count").val()
+            yarnrateperkg = $("#yarnrateperkg").val()
+            sizingperkg = $("#sizingperkg").val()
+            weaving = $("#weaving").val()
             checking = $("#checking").val()
             packing = $("#packing").val()
             others = $("#others").val()
-            yarnrate = $("#yarnrate").val()
-            sizing = $("#sizing").val()
-            weaving = $("#weaving").val()
-            width = $("#width").val()
 
             a = width + 4
-            weft = a * ppi * 0.5945238095 / 3
-            warp = (epi / count) * 0.64 * width
-            yarnrate = (yarnrate / 1000) * (weft + warp)
-            sizing = (sizing / 1000) * warp
-            weaving = ppi * weaving
-            total = weft + warp + yarnrate + sizing + weaving + checking + packing + others
-            $("#total").val(total)
+            weftgrams = (a * ppi * 0.5945238095) / count
+            $("#weftgrams").html(weftgrams)
+            warpgrams = epi / (count * (64 * width))
+            $("#warpgrams").html(warpgrams)
+            yarnrate = yarnrateperkg * weftgrams
+            $("#yarnrate").html(yarnrate)
+            sizing = sizingperkg * warpgrams
+            $("#sizing").html(sizing)
+            weaving_r = weaving * 2
+            $("#weaving_r").html(weaving_r)
+            $("#checking_r").html(checking)
+            $("#packing_r").html(packing)
+            $("#others_r").html(others)
+
+            total = yarnrate + sizing + weaving_r + checking + packing + others
+            $("#total").html(total)
         }
         $(document).ready(function () {
             var inputs = $(':input').keypress(function (e) {
@@ -76,32 +110,6 @@
         });
     </script>
     <script src="pwabuilder-sw-register.js"></script>
-    <div><button onclick="install()">Install</button></div>
-    <script>
-        let deferredPrompt = null;
-
-        window.addEventListener('beforeinstallprompt', (e) => {
-            // Prevent Chrome 67 and earlier from automatically showing the prompt
-            e.preventDefault();
-            // Stash the event so it can be triggered later.
-            deferredPrompt = e;
-        });
-
-        async function install() {
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                console.log(deferredPrompt)
-                deferredPrompt.userChoice.then(function (choiceResult) {
-                    if (choiceResult.outcome === 'accepted') {
-                        console.log('Your PWA has been installed');
-                    } else {
-                        console.log('User chose to not install your PWA');
-                    }
-                    deferredPrompt = null;
-                });
-            }
-        }
-    </script>
 </body>
 
 </html>
