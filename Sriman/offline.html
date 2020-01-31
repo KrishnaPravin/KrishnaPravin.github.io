@@ -72,20 +72,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
         function calculateTotal() {
-            epi = $("#epi").val()
-            ppi = $("#ppi").val()
-            width = $("#width").val()
-            weftcount = $("#weftcount").val()
-            warpcount = $("#warpcount").val()
-            weftyarnrateperkg = $("#weftyarnrateperkg").val()
-            warpyarnrateperkg = $("#warpyarnrateperkg").val()
-            sizingperkg = $("#sizingperkg").val()
-            weaving = $("#weaving").val()
-            checking = $("#checking").val()
-            packing = $("#packing").val()
-            others = $("#others").val()
+            epi = Number($("#epi").val())
+            ppi = Number($("#ppi").val())
+            width = Number($("#width").val())
+            weftcount = Number($("#weftcount").val())
+            warpcount = Number($("#warpcount").val())
+            weftyarnrateperkg = Number($("#weftyarnrateperkg").val())
+            warpyarnrateperkg = Number($("#warpyarnrateperkg").val())
+            sizingperkg = Number($("#sizingperkg").val())
+            weaving = Number($("#weaving").val())
+            checking = Number($("#checking").val())
+            packing = Number($("#packing").val())
+            others = Number($("#others").val())
 
-            a = Number(width) + 4
+            a = width + 4
             weftgrams = (a * ppi * 0.5945238095) / weftcount
             $("#weftgrams").html(weftgrams.toFixed(2))
             warpgrams = (epi * .64 * width) / warpcount
@@ -99,9 +99,9 @@
             $("#sizing").html(sizing.toFixed(2))
             weaving_r = weaving * ppi
             $("#weaving_r").html(weaving_r.toFixed(2))
-            $("#checking_r").html(checking.toFixed(2))
-            $("#packing_r").html(packing.toFixed(2))
-            $("#others_r").html(others.toFixed(2))
+            $("#checking_r").html(checking)
+            $("#packing_r").html(packing)
+            $("#others_r").html(others)
 
             total = weftyarnrate + warpyarnrate + sizing + weaving_r + checking + packing + others
             $("#total").html(total.toFixed(2))
