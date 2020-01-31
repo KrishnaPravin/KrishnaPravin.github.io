@@ -90,14 +90,14 @@
             $("#weftgrams").html(weftgrams)
             warpgrams = (epi * .64 * width) / warpcount
             $("#warpgrams").html(warpgrams)
-            weftyarnrate = weftgrams * weftyarnrateperkg
+            weftyarnrate = weftgrams * (weftyarnrateperkg / 1000)
             $("#weftyarnrate").html(weftyarnrate)
-            warpyarnrate = warpgrams * warpyarnrateperkg
+            warpyarnrate = warpgrams * (warpyarnrateperkg / 1000)
             $("#warpyarnrate").html(warpyarnrate)
 
-            sizing = sizingperkg * warpgrams
+            sizing = (sizingperkg / 1000) * warpgrams
             $("#sizing").html(sizing)
-            weaving_r = weaving * 2
+            weaving_r = weaving * ppi
             $("#weaving_r").html(weaving_r)
             $("#checking_r").html(checking)
             $("#packing_r").html(packing)
