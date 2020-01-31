@@ -8,7 +8,7 @@
     <style>
         * {
             box-sizing: border-box;
-            overflow: hidden;
+            /* overflow: hidden; */
         }
         html {
             font-size: 16px;
@@ -103,7 +103,7 @@
             $("#packing_r").html(packing)
             $("#others_r").html(others)
 
-            total = yarnrate + sizing + weaving_r + checking + packing + others
+            total = weftyarnrate + warpyarnrate + sizing + weaving_r + checking + packing + others
             $("#total").html(total)
         }
         $(document).ready(function () {
