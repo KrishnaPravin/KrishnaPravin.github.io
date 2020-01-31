@@ -43,8 +43,10 @@
             <label><span> EPI:</span> <input id="epi" type="number"></label>
             <label><span> PPI:</span> <input id="ppi" type="number"></label>
             <label><span> Width:</span> <input id="width" type="number"></label>
-            <label><span> Count:</span> <input id="count" type="number"></label>
-            <label><span> Yarn Rate:</span> <input id="yarnrateperkg" type="number"></label>
+            <label><span> Weft Count:</span> <input id="weftcount" type="number"></label>
+            <label><span> Warp Count:</span> <input id="warpcount" type="number"></label>
+            <label><span> Weft Yarn Rate:</span> <input id="weftyarnrateperkg" type="number"></label>
+            <label><span> Warp Yarn Rate:</span> <input id="warpyarnrateperkg" type="number"></label>
             <label><span> Sizingperkg:</span> <input id="sizingperkg" type="number"></label>
 
             <label><span> Weaving:</span> <input id="weaving" type="number"></label>
@@ -54,7 +56,8 @@
         </div><div style="display: inline-block; width: 50%; vertical-align: top;">
             <label><span>Weft grams:</span> <span id="weftgrams"></span></label>
             <label><span>Warp grams:</span> <span id="warpgrams"></span></label>
-            <label><span>yarnrate:</span> <span id="yarnrate"></span></label>
+            <label><span>weft yarnrate:</span> <span id="weftyarnrate"></span></label>
+            <label><span>warp yarnrate:</span> <span id="warpyarnrate"></span></label>
             <label><span>sizing:</span> <span id="sizing"></span></label>
 
             <label><span>weaving:</span> <span id="weaving_r"></span></label>
@@ -72,21 +75,26 @@
             epi = $("#epi").val()
             ppi = $("#ppi").val()
             width = $("#width").val()
-            count = $("#count").val()
-            yarnrateperkg = $("#yarnrateperkg").val()
+            weftcount = $("#weftcount").val()
+            warpcount = $("#warpcount").val()
+            weftyarnrateperkg = $("#weftyarnrateperkg").val()
+            warpyarnrateperkg = $("#warpyarnrateperkg").val()
             sizingperkg = $("#sizingperkg").val()
             weaving = $("#weaving").val()
             checking = $("#checking").val()
             packing = $("#packing").val()
             others = $("#others").val()
 
-            a = width + 4
-            weftgrams = (a * ppi * 0.5945238095) / count
+            a = Number(width) + 4
+            weftgrams = (a * ppi * 0.5945238095) / weftcount
             $("#weftgrams").html(weftgrams)
-            warpgrams = epi / (count * (64 * width))
+            warpgrams = (epi * .64 * width) / warpcount
             $("#warpgrams").html(warpgrams)
-            yarnrate = yarnrateperkg * weftgrams
-            $("#yarnrate").html(yarnrate)
+            weftyarnrate = weftgrams * weftyarnrateperkg
+            $("#weftyarnrate").html(weftyarnrate)
+            warpyarnrate = warpgrams * warpyarnrateperkg
+            $("#warpyarnrate").html(warpyarnrate)
+
             sizing = sizingperkg * warpgrams
             $("#sizing").html(sizing)
             weaving_r = weaving * 2
