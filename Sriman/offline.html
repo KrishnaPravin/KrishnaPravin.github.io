@@ -1,122 +1,130 @@
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <link rel='manifest' href='manifest.json'>
-    <title>Sriman</title>
+  <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-157950393-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+      gtag('config', 'UA-157950393-1')
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="manifest" href="manifest.json" />
+    <title>Sriman - Offline</title>
     <style>
-        * {
-            box-sizing: border-box;
-            /* overflow: hidden; */
-        }
-        html {
-            font-size: 16px;
-        }
+      * {
+        box-sizing: border-box;
+        /* overflow: hidden; */
+      }
+      html {
+        font-size: 16px;
+      }
 
-        label {
-            display: block;
-            margin: 10px 0;
-        }
+      label {
+        display: block;
+        margin: 10px 0;
+      }
 
-        label span {
-            display: inline-block;
-            min-width: 80px;
-        }
+      label span {
+        display: inline-block;
+        min-width: 80px;
+      }
 
-        input {
-            border: 0;
-            border-bottom: 1px solid #ccc;
-            font-size: inherit;
-            height: 40px;
-        }
+      input {
+        border: 0;
+        border-bottom: 1px solid #ccc;
+        font-size: inherit;
+        height: 40px;
+      }
 
-        input#total {
-            border: 1px solid blue;
-        }
+      input#total {
+        border: 1px solid blue;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div>
-        <div style="display: inline-block; width: 50%;">
-            <label><span> EPI:</span> <input id="epi" type="number"></label>
-            <label><span> PPI:</span> <input id="ppi" type="number"></label>
-            <label><span> Width:</span> <input id="width" type="number"></label>
-            <label><span> Weft Count:</span> <input id="weftcount" type="number"></label>
-            <label><span> Warp Count:</span> <input id="warpcount" type="number"></label>
-            <label><span> Weft Yarn Rate:</span> <input id="weftyarnrateperkg" type="number"></label>
-            <label><span> Warp Yarn Rate:</span> <input id="warpyarnrateperkg" type="number"></label>
-            <label><span> Sizingperkg:</span> <input id="sizingperkg" type="number"></label>
+      <div style="display: inline-block; width: 50%;">
+        <label><span> EPI:</span> <input id="epi" type="number"/></label>
+        <label><span> PPI:</span> <input id="ppi" type="number"/></label>
+        <label><span> Width:</span> <input id="width" type="number"/></label>
+        <label><span> Weft Count:</span> <input id="weftcount" type="number"/></label>
+        <label><span> Warp Count:</span> <input id="warpcount" type="number"/></label>
+        <label><span> Weft Yarn Rate:</span> <input id="weftyarnrateperkg" type="number"/></label>
+        <label><span> Warp Yarn Rate:</span> <input id="warpyarnrateperkg" type="number"/></label>
+        <label><span> Sizingperkg:</span> <input id="sizingperkg" type="number"/></label>
 
-            <label><span> Weaving:</span> <input id="weaving" type="number"></label>
-            <label><span> Checking:</span> <input id="checking" type="number"></label>
-            <label><span> Packing:</span> <input id="packing" type="number"></label>
-            <label><span> Others:</span> <input id="others" type="number"></label>
-        </div><div style="display: inline-block; width: 50%; vertical-align: top;">
-            <label><span>Weft grams:</span> <span id="weftgrams"></span></label>
-            <label><span>Warp grams:</span> <span id="warpgrams"></span></label>
-            <label><span>weft yarnrate:</span> <span id="weftyarnrate"></span></label>
-            <label><span>warp yarnrate:</span> <span id="warpyarnrate"></span></label>
-            <label><span>sizing:</span> <span id="sizing"></span></label>
+        <label><span> Weaving:</span> <input id="weaving" type="number"/></label>
+        <label><span> Checking:</span> <input id="checking" type="number"/></label>
+        <label><span> Packing:</span> <input id="packing" type="number"/></label>
+        <label><span> Others:</span> <input id="others" type="number"/></label>
+      </div>
+      <div style="display: inline-block; width: 50%; vertical-align: top;">
+        <label><span>Weft grams:</span> <span id="weftgrams"></span></label>
+        <label><span>Warp grams:</span> <span id="warpgrams"></span></label>
+        <label><span>weft yarnrate:</span> <span id="weftyarnrate"></span></label>
+        <label><span>warp yarnrate:</span> <span id="warpyarnrate"></span></label>
+        <label><span>sizing:</span> <span id="sizing"></span></label>
 
-            <label><span>weaving:</span> <span id="weaving_r"></span></label>
-            <label><span>checking:</span> <span id="checking_r"></span></label>
-            <label><span>packing:</span> <span id="packing_r"></span></label>
-            <label><span>others:</span> <span id="others_r"></span></label>
+        <label><span>weaving:</span> <span id="weaving_r"></span></label>
+        <label><span>checking:</span> <span id="checking_r"></span></label>
+        <label><span>packing:</span> <span id="packing_r"></span></label>
+        <label><span>others:</span> <span id="others_r"></span></label>
 
-            <label><span>total:</span> <span id="total"></span></label>
-        </div>
+        <label><span>total:</span> <span id="total"></span></label>
+      </div>
     </div>
-    <br><br>
+    <br /><br />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
-        function calculateTotal() {
-            epi = Number($("#epi").val())
-            ppi = Number($("#ppi").val())
-            width = Number($("#width").val())
-            weftcount = Number($("#weftcount").val())
-            warpcount = Number($("#warpcount").val())
-            weftyarnrateperkg = Number($("#weftyarnrateperkg").val())
-            warpyarnrateperkg = Number($("#warpyarnrateperkg").val())
-            sizingperkg = Number($("#sizingperkg").val())
-            weaving = Number($("#weaving").val())
-            checking = Number($("#checking").val())
-            packing = Number($("#packing").val())
-            others = Number($("#others").val())
+      function calculateTotal() {
+        epi = Number($('#epi').val())
+        ppi = Number($('#ppi').val())
+        width = Number($('#width').val())
+        weftcount = Number($('#weftcount').val())
+        warpcount = Number($('#warpcount').val())
+        weftyarnrateperkg = Number($('#weftyarnrateperkg').val())
+        warpyarnrateperkg = Number($('#warpyarnrateperkg').val())
+        sizingperkg = Number($('#sizingperkg').val())
+        weaving = Number($('#weaving').val())
+        checking = Number($('#checking').val())
+        packing = Number($('#packing').val())
+        others = Number($('#others').val())
 
-            a = width + 4
-            weftgrams = (a * ppi * 0.5945238095) / weftcount
-            $("#weftgrams").html(weftgrams.toFixed(2))
-            warpgrams = (epi * .64 * width) / warpcount
-            $("#warpgrams").html(warpgrams.toFixed(2))
-            weftyarnrate = weftgrams * (weftyarnrateperkg / 1000)
-            $("#weftyarnrate").html(weftyarnrate.toFixed(2))
-            warpyarnrate = warpgrams * (warpyarnrateperkg / 1000)
-            $("#warpyarnrate").html(warpyarnrate.toFixed(2))
+        a = width + 4
+        weftgrams = (a * ppi * 0.5945238095) / weftcount
+        $('#weftgrams').html(weftgrams.toFixed(2))
+        warpgrams = (epi * 0.64 * width) / warpcount
+        $('#warpgrams').html(warpgrams.toFixed(2))
+        weftyarnrate = weftgrams * (weftyarnrateperkg / 1000)
+        $('#weftyarnrate').html(weftyarnrate.toFixed(2))
+        warpyarnrate = warpgrams * (warpyarnrateperkg / 1000)
+        $('#warpyarnrate').html(warpyarnrate.toFixed(2))
 
-            sizing = (sizingperkg / 1000) * warpgrams
-            $("#sizing").html(sizing.toFixed(2))
-            weaving_r = weaving * ppi
-            $("#weaving_r").html(weaving_r.toFixed(2))
-            $("#checking_r").html(checking)
-            $("#packing_r").html(packing)
-            $("#others_r").html(others)
+        sizing = (sizingperkg / 1000) * warpgrams
+        $('#sizing').html(sizing.toFixed(2))
+        weaving_r = weaving * ppi
+        $('#weaving_r').html(weaving_r.toFixed(2))
+        $('#checking_r').html(checking)
+        $('#packing_r').html(packing)
+        $('#others_r').html(others)
 
-            total = weftyarnrate + warpyarnrate + sizing + weaving_r + checking + packing + others
-            $("#total").html(total.toFixed(2))
-        }
-        $(document).ready(function () {
-            var inputs = $(':input').keypress(function (e) {
-                calculateTotal()
-                if (e.which == 13) {
-                    e.preventDefault();
-                    const nextInput = inputs.get(inputs.index(this) + 1);
-                    if (nextInput) nextInput.focus()
-                }
-            });
-        });
+        total = weftyarnrate + warpyarnrate + sizing + weaving_r + checking + packing + others
+        $('#total').html(total.toFixed(2))
+      }
+      $(document).ready(function() {
+        var inputs = $(':input').keypress(function(e) {
+          calculateTotal()
+          if (e.which == 13) {
+            e.preventDefault()
+            const nextInput = inputs.get(inputs.index(this) + 1)
+            if (nextInput) nextInput.focus()
+          }
+        })
+      })
     </script>
-</body>
-
+  </body>
 </html>
