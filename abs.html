@@ -1,0 +1,50 @@
+<html>
+  <body>
+    <p id="text">Waiting to start</p>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('click', start);
+        const p = document.getElementById('text');
+
+        const wait = (time = 1) => new Promise((r) => setTimeout(r, time * 1000));
+        speechSynthesis.getVoices();
+
+        const speak = (str) => {
+          p.innerHTML = str;
+          const k = new SpeechSynthesisUtterance(str);
+          k.voice = speechSynthesis.getVoices().find(({name}) => name === 'Veena');
+          return window.speechSynthesis.speak(k);
+        };
+
+        const fiveSeconds = async () => {
+          for (let i = 5; i; i--) {
+            speak(i);
+            await wait();
+          }
+        };
+
+        async function start() {
+          document.removeEventListener('click', start);
+          const sets = 10;
+
+          speak('Starting In 10 seconds...');
+          await wait(5);
+          await fiveSeconds();
+
+          for (let i = 1; i <= sets; i++) {
+            speak('round ' + i);
+
+            await wait(15);
+
+            await fiveSeconds();
+
+            if (i === sets) continue;
+
+            await fiveSeconds();
+          }
+          speak('Congratulations!!!');
+        }
+      });
+    </script>
+  </body>
+</html>
